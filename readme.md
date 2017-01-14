@@ -1,0 +1,1 @@
+These are solutions to some problems from Project Euler which I wrote in 2013 when I studied Haskell. I lost most of what I wrote back then, but some nice/efficient/complicated solutions were saved.
