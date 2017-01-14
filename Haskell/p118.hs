@@ -1,4 +1,4 @@
--- This one is particularly nice and fast (compared to other solutions).
+-- This one is particularly nice and fast (compared to other solutions to this problem).
 
 import Data.List
 
