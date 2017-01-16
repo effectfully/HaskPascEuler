@@ -8,7 +8,7 @@ unDigitsRev = foldl ((+) . (* 10)) 0 . reverse
  
 g k p = takeWhile (<= 10^12 `div` k) $ map (^p) primes
 xs    = filter ([0,0,2] `isInfixOf`) $ map toDigitsRev $ 
- sort [x2 * x3 | x3 <- g 1 3, x2 <- g x3 2, x2^3 /= x3^2]
+  sort [x2 * x3 | x3 <- g 1 3, x2 <- g x3 2, x2^3 /= x3^2]
  
 f (x:xs) = all (not . isPrime . unDigitsRev) 
   [ l1 ++ [d] ++ l2

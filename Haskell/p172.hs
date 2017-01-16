@@ -13,5 +13,5 @@ f x y k
 
 g m = product . (scanl (-) m >>= zipWith cf)
 
-main = print $ ((* 9) . (`div` 10)) $ sum $ 
+main = print $ (* 9) . (`div` 10) $ sum $ 
   map ((*) <$> g cn <*> g 10 . map genericLength . group) $ f cn 1 10
