@@ -26,15 +26,15 @@ f n ms ss
   where
     nms      = Map.null ms
     (m, ss') = Set.deleteFindMax ss
-    b        = not nms && m < (fst $ Map.findMax ms)  
+    b        = not nms && m < fst (Map.findMax ms)  
     unm      = (Map.findWithDefault 0 m ms + 1) `rem` 3 + 1
     n'       = n * m^unm
     ms'      = Map.filter ((/= 0) . (`rem` 3)) $ Map.unionWith (+) (Map.delete m ms) $ facts!m
     rl       = map (second (as3!m:)) $ f n' ms' $ fst $ Set.split (nmax `div` n' + 1) ss' 
 
 h (n, xs)
-   | null xs || nx' >= nmax = n
-   | otherwise = h (nx', xs) + h (n, xs')
-   where (x':xs', nx') = (xs, n * x')
+  | null xs || nx' >= nmax = n
+  | otherwise = h (nx', xs) + h (n, xs')
+  where (x':xs', nx') = (xs, n * x')
 
 main = print $ pred . sum $ map (h . second reverse) $ f 1 Map.empty $ Set.fromDistinctAscList prs

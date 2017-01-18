@@ -12,6 +12,5 @@ main = do
   forM_ [1..3 * qm] $ \k ->
     forM_ (takeWhile (<= (m * 3)) $ map (\z -> k ^ 2 + 4 * k * z) $
              iterate (+ 3) (3 - k `rem` 3)) $ \v ->
-      when (v `rem` 3 == 0) $
-        modifyArray ns (v `div` 3) succ
+      when (v `rem` 3 == 0) $ modifyArray ns (v `div` 3) succ
   getElems ns >>= print . length . filter (== 10)

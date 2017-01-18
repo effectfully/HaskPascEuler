@@ -2,7 +2,7 @@
 
 import Data.List
 
-isPrime n = n > 1 && foldr (\p r -> p * p > n || ((n `rem` p) /= 0 && r)) True primes
+isPrime n = n > 1 && foldr (\p r -> p * p > n || n `rem` p /= 0 && r) True primes
 primes = 2 : filter isPrime [3,5..]
 
 n = 9
